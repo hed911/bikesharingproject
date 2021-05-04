@@ -1,0 +1,100 @@
+/*body{
+  background-color: #f7f7f7;
+}
+
+
+.bar-labels{
+  text-anchor: middle;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+select {
+  margin: 25px auto 0;
+  display: block;
+  font-size: 20px;
+}
+
+.mean-line {
+  stroke: #d62828;
+  stroke-dasharray: 6;
+  stroke-width: 2px;
+}
+
+
+
+#chart{
+  width: 800px;
+  height: 800px;
+  background-color: #f7f7f7;
+  margin: 25px auto;
+  position: relative
+}
+
+#tooltip {
+  text-align: center;
+  border: 1px solid #ccc;
+  position: absolute;
+  padding: 10px;
+  background-color: greenyellow;
+  display: none;
+}
+
+#tooltip .metric-date {
+  text-decoration: underline;
+}
+
+.axis {
+  font-size: 18px;
+  shape-rendering: geometricPrecision;
+}
+
+
+h1 { text-align: center; }
+
+h2 { text-align: center; }
+
+h3 { text-align: center; }
+*/
+
+.my-chart{
+  width: 800px;
+  height: 800px;
+  background-color: transparent;
+  margin: 25px auto;
+  position: relative;
+}
+
+.jumbotron {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron h1 {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
