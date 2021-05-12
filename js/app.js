@@ -13,10 +13,6 @@ const dimensions = {
 const drawScatterPlot = async (id, xData, yData) => {
   // Data
 
-  let div = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
-
   const dataset = await d3.json('./data/general.json');
   const xAccessor = (d) => d[xData.attribute];
   const yAccessor = (d) => d[yData.attribute];
