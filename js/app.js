@@ -12,6 +12,11 @@ const dimensions = {
 // make that the draw one only specify what fields take to draw 
 const drawScatterPlot = async (id, xData, yData) => {
   // Data
+
+  let div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
   const dataset = await d3.json('./data/general.json');
   const xAccessor = (d) => d[xData.attribute];
   const yAccessor = (d) => d[yData.attribute];
@@ -51,6 +56,22 @@ const drawScatterPlot = async (id, xData, yData) => {
     .join('circle')
     .attr('cx', d => xScale(xAccessor(d)))
     .attr('cy', d => yScale(yAccessor(d)))
+    .on("mouseover", function (i, d, p) {
+      console.log(d);
+      console.log(i);
+      console.log(p);
+      div.transition()
+        .duration(200)
+        .style("opacity", .9);
+      div.html(d.casual + "<br/>" + d.casual)
+        .style("left", (i.offsetX) + "px")
+        .style("top", (i.offsetY - 28) + "px");
+    })
+    .on("mouseout", function (d) {
+      div.transition()
+        .duration(500)
+        .style("opacity", 0);
+    })
     .attr('r', 3)
     .attr('fill', 'lightblue')
     .attr('data-temp', yAccessor);
@@ -125,12 +146,12 @@ const drawSectors = async (id, datasetFilename) => {
     .innerRadius(0)
   const arcLabels = d3.arc()
     .outerRadius(radius)
-    .innerRadius(200)
+    .innerRadius(60)
 
-  const colors = d3.quantize(d3.interpolateSpectral, dataset.length)
+  const colors = d3.quantize(d3.interpolateBlues, dataset.length)
   const colorScale = d3.scaleOrdinal()
-    .domain(dataset.map(element => element.name))
-    .range(colors)
+    .domain(slices.map(d => d.data.name))
+    .range(d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), slices.length).reverse())
 
   // Draw Shape
   const arcGroup = ctr.append('g')
