@@ -184,12 +184,12 @@ const drawSectors = async (id, datasetFilename) => {
         .append('tspan')
         .attr('y', 9)
         .attr('x', 0)
-        .text(d => d.data.value)
+        .text(d => `${d.data.value}%`)
     )
 }
 
 drawScatterPlot('#chart-one',
-  { attribute: 'temp', attributeName: 'Temperatura ºF' },
+  { attribute: 'temp', attributeName: 'Temperatura ºC' },
   { attribute: 'cnt', attributeName: 'Cantidad de Viajes' });
 
 drawScatterPlot('#chart-two',
